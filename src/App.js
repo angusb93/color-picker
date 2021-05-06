@@ -4,6 +4,7 @@ import seedColors from "./seedColors.js";
 import React, { Component } from "react";
 import { generatePalette } from "./colorHelpers";
 import { Route, Switch } from "react-router-dom";
+import SingleColorPalette from "./SingleColorPalette";
 
 export default class App extends Component {
   findPalette(id) {
@@ -37,13 +38,16 @@ export default class App extends Component {
         <Route
           exact
           path="/palette/:paletteId/:colorId"
-          render={() => <h1> Color pages</h1>}
+          render={(routeProps) => (
+            <SingleColorPalette
+              palette={generatePalette(
+                this.findPalette(routeProps.match.params.paletteId)
+              )}
+              colorId={routeProps.match.params.colorId}
+            />
+          )}
         />
       </Switch>
-
-      // <div>
-      //   <Palette palette={generatePalette(seedColors[4])} />
-      // </div>
     );
   }
 }
