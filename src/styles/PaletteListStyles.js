@@ -17,6 +17,12 @@ const styles = {
     display: "flex",
     width: "100%",
     justifyContent: "space-between",
+    alignItems: "center",
+    color: "white",
+    "& a": {
+      color: "white",
+      textDecoration: "none",
+    },
   },
   palettes: {
     boxSizing: "border-box",
