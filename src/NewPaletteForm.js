@@ -11,8 +11,6 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
 import DraggableColorList from "./DraggableColorList";
 
-import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-import { ChromePicker } from "react-color";
 import arrayMove from "array-move";
 
 const drawerWidth = 400;
@@ -21,24 +19,7 @@ const styles = (theme) => ({
   root: {
     display: "flex",
   },
-  appBar: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginLeft: 12,
-    marginRight: 20,
-  },
+
   hide: {
     display: "none",
   },
@@ -93,17 +74,7 @@ class NewPaletteForm extends Component {
     this.clearColors = this.clearColors.bind(this);
     this.addRandomColor = this.addRandomColor.bind(this);
   }
-  componentDidMount() {
-    // custom rule will have name 'isPasswordMatch'
-    ValidatorForm.addValidationRule("isColorNameUnique", (value) =>
-      this.state.colors.every(
-        ({ name }) => name.toLowerCase() !== value.toLowerCase()
-      )
-    );
-    ValidatorForm.addValidationRule("isColorUnique", (value) =>
-      this.state.colors.every(({ color }) => color !== this.state.currentColor)
-    );
-  }
+
   handleDrawerOpen = () => {
     this.setState({ open: true });
   };
@@ -112,11 +83,7 @@ class NewPaletteForm extends Component {
     this.setState({ open: false });
   };
 
-  addNewColor() {
-    const newColor = {
-      color: this.state.currentColor,
-      name: this.state.newColorName,
-    };
+  addNewColor(newColor) {
     this.setState({
       colors: [...this.state.colors, newColor],
       newColorName: "",
@@ -163,7 +130,6 @@ class NewPaletteForm extends Component {
       <div className={classes.root}>
         <PaletteFormNav
           open={open}
-          classes={classes}
           palettes={palettes}
           handleSubmit={this.handleSubmit}
           handleDrawerOpen={this.handleDrawerOpen}
@@ -200,7 +166,11 @@ class NewPaletteForm extends Component {
               Random Color
             </Button>
           </div>
-          <ColorPickerForm paletteFull={paletteFull} />
+          <ColorPickerForm
+            paletteFull={paletteFull}
+            addNewColor={this.addNewColor}
+            colors={colors}
+          />
         </Drawer>
         <main
           className={classNames(classes.content, {
