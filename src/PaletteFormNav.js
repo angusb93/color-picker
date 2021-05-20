@@ -14,11 +14,16 @@ import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
 const drawerWidth = 400;
 const styles = (theme) => ({
+  root: {
+    display: "flex",
+  },
   appBar: {
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   appBarShift: {
     width: `calc(100% - ${drawerWidth}px)`,
@@ -32,6 +37,7 @@ const styles = (theme) => ({
     marginLeft: 12,
     marginRight: 20,
   },
+  navBtns: {},
 });
 
 class PaletteFormNav extends Component {
@@ -74,6 +80,8 @@ class PaletteFormNav extends Component {
             <Typography variant="h6" color="inherit" noWrap>
               Persistent drawer
             </Typography>
+          </Toolbar>
+          <div className={classes.navBtns}>
             <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
               <TextValidator
                 label="Palette Name"
@@ -87,13 +95,13 @@ class PaletteFormNav extends Component {
               <Button variant="contained" color="primary" type="submit">
                 Save Palette
               </Button>
-              <Link to="/">
-                <Button variant="contained" color="secondary" type="submit">
-                  Go Back
-                </Button>
-              </Link>
             </ValidatorForm>
-          </Toolbar>
+            <Link to="/">
+              <Button variant="contained" color="secondary" type="submit">
+                Go Back
+              </Button>
+            </Link>
+          </div>
         </AppBar>
       </div>
     );
