@@ -10,6 +10,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
 import PaletteMetaForm from "./PaletteMetaForm";
 import { withStyles } from "@material-ui/core/styles";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
 
 import styles from "./styles/PaletteFormNavStyles";
@@ -51,9 +52,11 @@ class PaletteFormNav extends Component {
               color="inherit"
               aria-label="Open drawer"
               onClick={handleDrawerOpen}
-              className={classNames(classes.menuButton, open && classes.hide)}
+              className={classNames(classes.menuButton, {
+                [classes.hide]: open,
+              })}
             >
-              <MenuIcon />
+              <ChevronRightIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
               Persistent drawer
