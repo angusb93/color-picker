@@ -1,7 +1,7 @@
 import sizes from "./sizes";
 const styles = {
   palette: { height: "100vh", display: "flex", flexDirection: "column" },
-  colors: { height: "90%" },
+  paletteColors: { height: "90%" },
   goBack: {
     width: "20%",
     height: "50%",
@@ -9,7 +9,7 @@ const styles = {
     display: "inline-block",
     position: "relative",
     cursor: "pointer",
-    marginBottom: "-3.5px",
+    marginBottom: "-3px",
     opacity: 1,
     backgroundColor: "black",
     "& a": {
