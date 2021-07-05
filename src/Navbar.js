@@ -43,7 +43,7 @@ class Navbar extends Component {
                 min={100}
                 max={900}
                 step={100}
-                onAfterChange={changeLevel}
+                onChange={changeLevel}
               />
             </div>
           </div>

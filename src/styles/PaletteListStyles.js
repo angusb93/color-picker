@@ -23,6 +23,12 @@ const styles = {
   },
   heading: {
     fontSize: "4rem",
+    [sizes.down("xl")]: {
+      fontSize: "3rem",
+    },
+    [sizes.down("xs")]: {
+      fontSize: "3rem",
+    },
   },
   container: {
     width: "50%",
@@ -50,9 +56,36 @@ const styles = {
       textAlign: "center",
       textDecoration: " none",
       border: "none",
-      textDecoration: "none",
-      fontSize: "25px",
+      WebkitTransitionDuration: "0.4s",
+      transitionDuration: "0.4s",
+      overflow: "hidden",
+      cursor: "pointer",
       fontWeight: "bold",
+      fontSize: "25px",
+      ".a:after": {
+        content: '""',
+        background: "#90EE90",
+        display: "block",
+        position: "absolute",
+        paddingTop: "300%",
+        paddingLeft: "350%",
+        marginLeft: "-20px !important",
+        marginTop: "-120%",
+        opacity: 0,
+        transition: "all 0.8s",
+      },
+      ".a:active:after": {
+        padding: "0",
+        margin: "0",
+        opacity: 1,
+        transition: "0s",
+      },
+      [sizes.down("xl")]: {
+        fontSize: "18px",
+      },
+      [sizes.down("xs")]: {
+        fontSize: "15px",
+      },
     },
   },
   palettes: {
