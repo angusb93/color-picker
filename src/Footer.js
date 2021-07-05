@@ -6,7 +6,7 @@ function Footer(props) {
   const { paletteName, emoji, classes } = props;
   return (
     <footer className={classes.paletteFooter}>
-      {paletteName}
+      {paletteName} <span>&nbsp;&nbsp;&nbsp;</span>
       <span className={classes.emoji}>{emoji}</span>
     </footer>
   );

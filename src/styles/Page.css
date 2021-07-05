@@ -13,5 +13,5 @@
   transform: translateX(0);
 }
 .page-exit-active {
-  ransform: translateX(-100%);
+  transform: translateX(-100%);
 }

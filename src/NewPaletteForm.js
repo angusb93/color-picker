@@ -69,7 +69,9 @@ class NewPaletteForm extends Component {
     while (isDuplicateColor) {
       rand = Math.floor(Math.random() * allColors.length);
       randomColor = allColors[rand];
-      this.state.colors.some((color) => color.name === randomColor.name);
+      isDuplicateColor = this.state.colors.some(
+        (color) => color.name === randomColor.name
+      );
     }
     this.setState({ colors: [...this.state.colors, randomColor] });
   }
@@ -151,7 +153,7 @@ class NewPaletteForm extends Component {
             removeColor={this.removeColor}
             axis="xy"
             onSortEnd={this.onSortEnd}
-            distance={10}
+            distance={20}
           />
         </main>
       </div>

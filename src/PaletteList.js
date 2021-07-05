@@ -13,6 +13,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import blue from "@material-ui/core/colors/blue";
 import red from "@material-ui/core/colors/red";
 import { withStyles } from "@material-ui/styles";
+import Button from "@material-ui/core/Button";
 
 import MiniPalette from "./MiniPalette";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
@@ -51,7 +52,9 @@ class PaletteList extends Component {
         <div className={classes.container}>
           <nav className={classes.nav}>
             <h1 className={classes.heading}>React Colors!</h1>
-            <Link to="/palette/new">Create Palette</Link>
+            <Button component={Link} to="/palette/new">
+              Create Palette
+            </Button>
           </nav>
 
           <TransitionGroup className={classes.palettes}>

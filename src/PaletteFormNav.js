@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { withStyles } from "@material-ui/core/styles";
+import PaletteMetaForm from "./PaletteMetaForm";
 import { Link } from "react-router-dom";
 import classNames from "classnames";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -6,11 +8,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import IconButton from "@material-ui/core/IconButton";
+import AddToPhotosIcon from "@material-ui/icons/AddToPhotos";
 import Button from "@material-ui/core/Button";
-import PaletteMetaForm from "./PaletteMetaForm";
-import { withStyles } from "@material-ui/core/styles";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
-
 import styles from "./styles/PaletteFormNavStyles";
 
 class PaletteFormNav extends Component {
@@ -21,8 +20,11 @@ class PaletteFormNav extends Component {
     this.showForm = this.showForm.bind(this);
     this.hideForm = this.hideForm.bind(this);
   }
+
   handleChange(evt) {
-    this.setState({ [evt.target.name]: evt.target.value });
+    this.setState({
+      [evt.target.name]: evt.target.value,
+    });
   }
   showForm() {
     this.setState({ formShowing: true });
@@ -30,13 +32,12 @@ class PaletteFormNav extends Component {
   hideForm() {
     this.setState({ formShowing: false });
   }
-
   render() {
-    const { classes, open, handleSubmit, handleDrawerOpen, palettes } =
+    const { classes, open, palettes, handleSubmit, handleDrawerOpen } =
       this.props;
     const { formShowing } = this.state;
     return (
-      <div>
+      <div className={classes.root}>
         <CssBaseline />
         <AppBar
           position="fixed"
@@ -54,10 +55,10 @@ class PaletteFormNav extends Component {
                 [classes.hide]: open,
               })}
             >
-              <ChevronRightIcon />
+              <AddToPhotosIcon />
             </IconButton>
             <Typography variant="h6" color="inherit" noWrap>
-              Persistent drawer
+              Create A Palette
             </Typography>
           </Toolbar>
           <div className={classes.navBtns}>
@@ -65,7 +66,6 @@ class PaletteFormNav extends Component {
               <Button
                 variant="contained"
                 color="secondary"
-                type="submit"
                 className={classes.button}
               >
                 Go Back
@@ -92,5 +92,4 @@ class PaletteFormNav extends Component {
     );
   }
 }
-
 export default withStyles(styles, { withTheme: true })(PaletteFormNav);

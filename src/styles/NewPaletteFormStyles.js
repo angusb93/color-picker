@@ -1,16 +1,19 @@
 import { DRAWER_WIDTH } from "../constants";
 const drawerWidth = DRAWER_WIDTH;
+
 const styles = (theme) => ({
   root: {
     display: "flex",
   },
-
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    height: "100vh",
   },
   drawerPaper: {
     width: drawerWidth,
+    display: "flex",
+    alignItems: "center",
   },
   drawerHeader: {
     display: "flex",
@@ -23,7 +26,7 @@ const styles = (theme) => ({
   content: {
     flexGrow: 1,
     height: "calc(100vh - 64px)",
-    padding: "0",
+    padding: 0,
     transition: theme.transitions.create("margin", {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -44,6 +47,7 @@ const styles = (theme) => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    fontSize: "2.4rem",
   },
   buttons: {
     width: "100%",
@@ -52,4 +56,5 @@ const styles = (theme) => ({
     width: "50%",
   },
 });
+
 export default styles;

@@ -1,5 +1,5 @@
 import sizes from "./sizes";
-import bg from "./bg.svg";
+import bg from "./bg2.svg";
 const styles = {
   "@global": {
     ".fade-exit": {
@@ -45,7 +45,14 @@ const styles = {
     color: "white",
     "& a": {
       color: "white",
+      backgroundColor: "#eb3d30",
+      padding: "7px 10px",
+      textAlign: "center",
+      textDecoration: " none",
+      border: "none",
       textDecoration: "none",
+      fontSize: "25px",
+      fontWeight: "bold",
     },
   },
   palettes: {
@@ -53,7 +60,7 @@ const styles = {
     width: "100%",
     display: "grid",
     gridTemplateColumns: "repeat(3,30%)",
-    gridGap: "2.5rem",
+    gridGap: "3rem",
     [sizes.down("sm")]: {
       gridTemplateColumns: "repeat(2, 50%)",
     },
