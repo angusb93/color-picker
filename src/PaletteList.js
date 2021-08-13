@@ -52,7 +52,12 @@ class PaletteList extends Component {
         <div className={classes.container}>
           <nav className={classes.nav}>
             <h1 className={classes.heading}>React Colors!</h1>
-            <Button color="primary" component={Link} to="/palette/new">
+            <Button
+              className={classes.button}
+              color="default"
+              component={Link}
+              to="/palette/new"
+            >
               Create Palette
             </Button>
           </nav>

@@ -66,12 +66,20 @@ class NewPaletteForm extends Component {
     let rand;
     let randomColor;
     let isDuplicateColor = true;
+    // function that checks if color is already in state.colors
+    const checkColor = (randomColor) => {
+      if (this.state.colors.some((color) => color.name === randomColor.name)) {
+        // console.log("found a duplicate color");
+        return true;
+      } else {
+        return false;
+      }
+    };
+
     while (isDuplicateColor) {
       rand = Math.floor(Math.random() * allColors.length);
       randomColor = allColors[rand];
-      isDuplicateColor = this.state.colors.some(
-        (color) => color.name === randomColor.name
-      );
+      isDuplicateColor = checkColor(randomColor);
     }
     this.setState({ colors: [...this.state.colors, randomColor] });
   }

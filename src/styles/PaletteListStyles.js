@@ -102,5 +102,13 @@ const styles = {
       gridGap: "1.4rem",
     },
   },
+  button: {
+    backgroundColor: "red",
+    transform: "scale(0.8)",
+    transition: "100ms cubic-bezier(0, 0.8, 0.13, 1)",
+    "&:hover": {
+      transform: "scale(1)",
+    },
+  },
 };
 export default styles;
